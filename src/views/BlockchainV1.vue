@@ -48,9 +48,7 @@
     },
     data () {
       return {
-        title: 'Взаимодействие с сервером по протоколу websocket v1',
-        sum: 0,
-        items: []
+        title: 'Взаимодействие с сервером по протоколу websocket v1'
       }
     },
     computed: {
