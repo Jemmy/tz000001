@@ -15,7 +15,7 @@
 </template>
 
 <script>
-  // @ is an alias to /src
+  // @ алиас к папке /src
   import ChildToolbar from '@/components/layout/ChildToolbar.vue'
   import Panel from '@/components/Panel'
   import { mapGetters, mapMutations } from 'vuex'

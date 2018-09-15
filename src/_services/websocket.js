@@ -1,3 +1,5 @@
+// @ алиас к папке /src
+
 import Vue from 'vue'
 import VueNativeSock from 'vue-native-websocket'
 import store from '@/_store'

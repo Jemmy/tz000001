@@ -37,7 +37,7 @@
 </template>
 
 <script>
-  // @ is an alias to /src
+  // @ алиас к папке /src
   import ChildToolbar from '@/components/layout/ChildToolbar.vue'
   import { mapGetters } from 'vuex'
 
@@ -48,7 +48,7 @@
     },
     data () {
       return {
-        title: 'Взаимодействие с сервером по протоколу websocket v1'
+        title: 'Взаимодействие с сервером по протоколу websocket'
       }
     },
     computed: {
@@ -76,12 +76,13 @@
   .blockchain {
     &__container {
       padding-top: 32px;
+      width: 100%;
     }
 
     &__buttons {
       text-align: center;
       width: 100%;
-      padding: 8px;
+      padding: 8px 0;
     }
 
     &__button {
@@ -110,6 +111,7 @@
       &:disabled {
         color: #484848;
         background-color: #a8a8a8;
+
         &:hover {
           color: #484848;
           background-color: #a8a8a8;
@@ -118,38 +120,42 @@
 
       &--start {
         background-color: #4CAF50;
+
         &:hover {
           background-color: #2E7D32;
         }
       }
       &--stop {
         background-color: #F44336;
+
         &:hover {
           background-color: #B71C1C;
         }
       }
+
       &--reset {
         background-color: #FF9800;
+
         &:hover {
           background-color: #E65100;
         }
       }
     }
+
     &__sum {
       text-align: center;
     }
+
     &__table {
+      width: 90%;
+      margin: 0 auto;
+
       table {
-        width: 80%;
-        margin: 0 auto;
+        width: 100%;
         empty-cells: show;
         border: 1px solid #cbcbcb;
         border-collapse: collapse;
         border-spacing: 0;
-      }
-
-      thead {
-
       }
 
       th {
@@ -164,6 +170,7 @@
         &:first-child {
           border-left-width: 0;
         }
+
         &:last-child {
           border-right-width: 0;
         }
@@ -196,6 +203,7 @@
         &:first-child {
           border-left-width: 0;
         }
+
         &:last-child {
           border-right-width: 0;
         }

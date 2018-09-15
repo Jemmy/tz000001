@@ -111,7 +111,7 @@
 <style lang="scss" scoped>
   $borderColor: #999999;
   $borderActiveColor: #696969;
-  $borderSize: 1px;
+  $borderSize: 2px;
   $borderBlockSize: 7px;
 
   .panel {

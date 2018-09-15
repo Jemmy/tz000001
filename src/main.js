@@ -1,10 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
+import router from './_routes'
 import store from './_store'
-import './services/lodash'
-import './services/websocket'
-import './filters/btc'
+import './_services'
+import './_filters'
 
 Vue.config.productionTip = false
 
