@@ -4,6 +4,7 @@ import router from './router'
 import store from './_store'
 import './services/lodash'
 import './services/websocket'
+import './filters/btc'
 
 Vue.config.productionTip = false
 
