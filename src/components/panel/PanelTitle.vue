@@ -1,6 +1,6 @@
 <template>
   <div class="title" v-bind:class="{ active: active }">
-    <panel-title-button :click="close"></panel-title-button>
+    <panel-title-button :id="id"></panel-title-button>
     <slot></slot>
   </div>
 </template>
@@ -19,8 +19,8 @@
         required: true,
         default: false
       },
-      close: {
-        type: Function,
+      id: {
+        type: Number,
         required: true
       }
     }

@@ -3,7 +3,7 @@
     :active="params.inactive === 0"
     :grid="[gridStepX, gridStepY]"
     :h="params.height"
-    :parent="true"
+    :parent="false"
     :w="params.width"
     :x="params.left"
     :y="params.top"
@@ -14,9 +14,7 @@
     class="panel"
     v-if="params.hide === 0"
   >
-    <panel-title :active="+this.params.inactive === 0" :close="showHide">
-      {{params.title}}
-    </panel-title>
+    <panel-title :active="+this.params.inactive === 0" :id="params.id">{{params.title}}</panel-title>
     <slot></slot>
     <panel-info :h="params.height" :l="params.left" :t="params.top" :w="params.width"></panel-info>
   </vue-draggable-resizable>
@@ -62,14 +60,28 @@
       /**
        * Скрытие, отображение панели
        */
-      showHide () {
-        +this.params.hide === 0 ? this.hide(this.params.id) : this.show(this.params.id)
+      onState () {
+        if (+this.params.hide === 0) {
+          this.hide(this.params.id)
+        } else {
+          this.show(this.params.id)
+        }
       },
       /**
        * Активация панели
        */
       onActivated () {
-        this.activate(this.params.id)
+        if (this.params.inactive !== 0) {
+          this.activate(this.params.id)
+        }
+        if (event.srcElement.className === 'button--close') {
+          event.stopPropagation()
+          this.$nextTick(() => {
+            this.hide(this.params.id)
+          })
+        }
+
+        return true
       },
       /**
        * Сохранение позиции панели
@@ -95,7 +107,9 @@
         // Позиция
         this.onDragStop(left, top)
         // Размер
-        this.size({ id: this.params.id, width: width, height: height })
+        if (+this.params.width !== +width || +this.params.height !== height) {
+          this.size({ id: this.params.id, width: width, height: height })
+        }
       },
       ...mapMutations({
         hide: 'panel/hide',

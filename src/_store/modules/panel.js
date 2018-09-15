@@ -72,6 +72,12 @@ const state = {
   ]
 }
 
+const actions = {
+  activate ({ commit }, id) {
+    commit('activate', id)
+  }
+}
+
 const getters = {
   /**
    * Список панелей
@@ -171,6 +177,7 @@ const mutations = {
 export default {
   namespaced: true,
   state,
+  actions,
   getters,
   mutations
 }

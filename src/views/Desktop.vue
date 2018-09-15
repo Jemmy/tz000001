@@ -1,16 +1,12 @@
 <template>
   <div class="desktop">
     <child-toolbar :title="title"></child-toolbar>
-    <div class="desktop__dr-container">
+    <div class="desktop__container">
       <div class="desktop__main" ref="desktop">
         <panel :key="item.id" :params="item" v-for="item in orderedPanels"></panel>
       </div>
     </div>
-    <ul class="desktop__taskbar">
-      <li :key="item.id" v-for="item in orderedTaskbarPanels" v-if="item.hide !== 0">
-        <button @click="showPanel(item.id)">Окно "{{item.title}}"</button>
-      </li>
-    </ul>
+    <desktop-taskbar :onRestore="onRestore" :panels="orderedTaskbarPanels"></desktop-taskbar>
   </div>
 </template>
 
@@ -18,6 +14,7 @@
   // @ алиас к папке /src
   import ChildToolbar from '@/components/layout/ChildToolbar.vue'
   import Panel from '@/components/panel/Panel'
+  import DesktopTaskbar from '@/components/desktop/DesktopTaskbar'
   import { mapGetters, mapMutations } from 'vuex'
   import { PANEL_DEFAULT_HEIGHT, PANEL_DEFAULT_WIDTH } from '../constants'
 
@@ -25,7 +22,8 @@
     name: 'desktop',
     components: {
       Panel,
-      ChildToolbar
+      ChildToolbar,
+      DesktopTaskbar
     },
     data () {
       return {
@@ -48,7 +46,8 @@
       }
     },
     methods: {
-      showPanel (id) {
+      onRestore (id) {
+        console.log('onRestore', id)
         // Расчет координат отображения скрытого окна
         // Ширина рабочего стола с округлением  до размера сетки по горизонтали
         let desktopWidth = Math.ceil(this.$refs.desktop.clientWidth / this.gridStepX) * this.gridStepX
@@ -85,7 +84,7 @@
     min-width: 100%;
     position: relative;
 
-    &__dr-container {
+    &__container {
       position: absolute;
       top: 40px;
       bottom: 40px;
@@ -99,38 +98,6 @@
       width: 100%;
       min-height: 100%;
       min-width: 100%;
-    }
-
-    &__taskbar {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 34px;
-
-      list-style-type: none;
-      margin: 0;
-      padding: 1px;
-      overflow: hidden;
-      background-color: #333;
-
-      li {
-        display: block;
-        float: left;
-        margin-right: 1px;
-
-        button {
-          display: block;
-          color: #333;
-          text-align: center;
-          padding: 8px 16px;
-          text-decoration: none;
-          &:hover {
-            color: #fff;
-            background-color: #111;
-          }
-        }
-      }
     }
   }
 </style>
