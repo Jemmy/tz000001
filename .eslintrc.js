@@ -15,7 +15,7 @@ module.exports = {
       'error',
       2,
       { 'baseIndent': 1 }
-    ],
+    ]
   },
   'overrides': [
     {

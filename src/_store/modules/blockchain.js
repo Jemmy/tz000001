@@ -29,7 +29,7 @@ const mutations = {
     state.socket.isConnected = false
   },
   SOCKET_ONERROR (state, event) {
-    console.error(state, event)
+    state.socket.isConnected = false
   },
   SOCKET_ONMESSAGE (state, message) {
     if (message.op === 'pong') {
