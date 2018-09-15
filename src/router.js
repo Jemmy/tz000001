@@ -22,12 +22,12 @@ export default new Router({
       component: () => import(/* webpackChunkName: "desktop" */ './views/Desktop.vue')
     },
     {
-      path: '/blockchain',
-      name: 'blockchain',
+      path: '/blockchain.v1',
+      name: 'blockchain.v1',
       // route level code-splitting
-      // this generates a separate chunk (blockchain.[hash].js) for this route
+      // this generates a separate chunk (blockchain.v1.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "blockchain" */ './views/Blockchain.vue')
+      component: () => import(/* webpackChunkName: "blockchain.v1" */ './views/BlockchainV1.vue')
     }
   ]
 })
