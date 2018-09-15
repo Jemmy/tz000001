@@ -14,25 +14,25 @@
     class="panel"
     v-if="params.hide === 0"
   >
-    <div class="panel__title">
-      <button @click.stop="showHide()" class="panel__button--close"></button>
+    <panel-title :active="+this.params.inactive === 0" :close="showHide">
       {{params.title}}
-    </div>
+    </panel-title>
     <slot></slot>
-    <div class="panel__info">
-      <div>position: {{params.left}}x{{params.top}}</div>
-      <div>size: {{params.width}}x{{params.height}}</div>
-    </div>
+    <panel-info :h="params.height" :l="params.left" :t="params.top" :w="params.width"></panel-info>
   </vue-draggable-resizable>
 </template>
 
 <script>
   import VueDraggableResizable from 'vue-draggable-resizable'
+  import PanelTitle from './PanelTitle'
+  import PanelInfo from './PanelInfo'
   import { mapMutations } from 'vuex'
 
   export default {
     name: 'Panel',
     components: {
+      PanelTitle,
+      PanelInfo,
       VueDraggableResizable
     },
     props: {
@@ -109,72 +109,16 @@
 </script>
 
 <style lang="scss" scoped>
-  $borderColor: #999999;
-  $borderActiveColor: #696969;
-  $borderSize: 2px;
-  $borderBlockSize: 7px;
+  @import "vars";
 
   .panel {
     border: $borderSize solid $borderColor;
     background-color: #f9f9f9;
 
-    &__title {
-      height: 32px;
-      overflow-x: hidden;
-      overflow-y: hidden;
-      overflow-wrap: break-spaces;
-      line-height: 32px;
-      text-align: left;
-      padding-left: 8px;
-      border-bottom: $borderSize solid $borderColor;
-    }
-
-    &__info {
-      position: absolute;
-      text-align: left;
-      right: 8px;
-      bottom: 4px;
-      font-size: 10px;
-    }
-
     &.active {
       border-color: $borderActiveColor;
       z-index: 10000 !important;
       background-color: #fff;
-
-      .panel__title {
-        border-color: $borderActiveColor;
-        background-color: #d5d2ff;
-      }
-    }
-
-    &__button {
-      &--close {
-        background-color: #ffffff;
-        border-radius: 3px;
-        border: 1px solid #dcdcdc;
-        display: inline-block;
-        cursor: pointer;
-        color: #666666;
-        font-size: 11px;
-        font-weight: bold;
-        padding: 3px 6px;
-        text-decoration: none;
-        text-shadow: 0 1px 0 #ffffff;
-        margin-right: 4px;
-
-        &:before {
-          content: 'X';
-        }
-
-        &:hover {
-          background-color: #f6f6f6;
-        }
-        &:active {
-          position: relative;
-          top: 1px;
-        }
-      }
     }
 
     /deep/ .handle {

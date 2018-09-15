@@ -17,7 +17,7 @@
 <script>
   // @ алиас к папке /src
   import ChildToolbar from '@/components/layout/ChildToolbar.vue'
-  import Panel from '@/components/Panel'
+  import Panel from '@/components/panel/Panel'
   import { mapGetters, mapMutations } from 'vuex'
   import { PANEL_DEFAULT_HEIGHT, PANEL_DEFAULT_WIDTH } from '../constants'
 
