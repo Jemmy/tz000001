@@ -3,7 +3,7 @@
     :active="params.inactive === 0"
     :grid="[gridStepX, gridStepY]"
     :h="params.height"
-    :parent="false"
+    :parent="true"
     :w="params.width"
     :x="params.left"
     :y="params.top"
