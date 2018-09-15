@@ -49,7 +49,8 @@ const mutations = {
       transaction.sum = sum
 
       state.sum += sum
-      state.transactions.splice(0, 0, transaction)
+
+      state.transactions.unshift(transaction)
     }
   },
   reset (state) {

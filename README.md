@@ -1,5 +1,9 @@
 # tz.localhost
 
+![Desktop](screenshots/desktop.png)
+
+![Blockchain](screenshots/blockchain.png)
+
 ## Project setup
 ```
 yarn install
