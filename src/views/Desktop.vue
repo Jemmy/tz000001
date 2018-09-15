@@ -47,7 +47,6 @@
     },
     methods: {
       onRestore (id) {
-        console.log('onRestore', id)
         // Расчет координат отображения скрытого окна
         // Ширина рабочего стола с округлением  до размера сетки по горизонтали
         let desktopWidth = Math.ceil(this.$refs.desktop.clientWidth / this.gridStepX) * this.gridStepX
