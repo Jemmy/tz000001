@@ -57,7 +57,8 @@ yarn run lint
     * Функционал
     
 8. vue-native-websocket [https://github.com/nathantsoi/vue-native-websocket](https://github.com/nathantsoi/vue-native-websocket)
-    Библиотека работы с LocalStorage.  
+    Библиотека работы с LocalStorage. 
+    
     Аргументы выбора 
     * License MIT
     * Нативный клиент
