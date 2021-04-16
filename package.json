@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.11",
-    "vue": "^2.5.17",
+    "vue": "^2.6.12",
     "vue-draggable-resizable": "^1.7.2",
     "vue-lodash": "^2.0.0",
     "vue-native-websocket": "^2.0.11",
